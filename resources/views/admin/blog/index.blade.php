@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Blog')
+@section('title', 'Case Study List')
 
 @section('styles')
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
@@ -8,8 +8,8 @@
 @section('content')
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h5 class="mb-0">Blog List</h5>
-        <a href="{{route('blog.create')}}" class="btn btn-primary btn-sm">Add Blog</a>
+        <h5 class="mb-0">Case Study List</h5>
+        <a href="{{route('blog.create')}}" class="btn btn-primary btn-sm">Add Case Study</a>
     </div>
     <div class="table-responsive">
         <div class="container">

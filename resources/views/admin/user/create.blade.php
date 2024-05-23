@@ -99,7 +99,7 @@
 @section('scripts')
 <script>
     $(document).ready(function () {
-        var route_prefix = "https://dwao.in/blog/admin/filemanager";
+        var route_prefix = '{{ env("APP_URL") }}'+"/admin/filemanager";
         $('#lfm').filemanager('image',{prefix: route_prefix});
     });
 </script>

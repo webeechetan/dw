@@ -63,18 +63,18 @@ It is just to check the uri segment value so that we can activate the currenct s
        <li class="menu-item {{Request::segment(2)== 'blog' ? 'menu-item active open' : ''}}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-detail"></i>
-          <div data-i18n="Layouts">Blogs</div>
+          <div data-i18n="Layouts">Case Studies</div>
         </a>
 
         <ul class="menu-sub">
           <li class="menu-item">
             <a href="{{route('blog.index')}}" class="menu-link">
-              <div data-i18n="Without menu">Blog List</div>
+              <div data-i18n="Without menu">List</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="{{route('blog.create')}}" class="menu-link">
-              <div data-i18n="Without menu">Add Blog</div>
+              <div data-i18n="Without menu">Add</div>
             </a>
           </li>
         </ul>

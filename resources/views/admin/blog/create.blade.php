@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
-@section('title', 'Blog')
+@section('title', 'Case Study Add')
 @section('content')
 <div class="row">
     <div class="col-xl">
       <div class="card mb-4">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h5 class="mb-0">Add Blog</h5>
+          <h5 class="mb-0">Add Case Study</h5>
           <small class="text-muted float-end">
-            <a href="{{ route('blog.index') }}"> <button class="btn btn-primary btn-sm">Blog List</button> </a>
+            <a href="{{ route('blog.index') }}"> <button class="btn btn-primary btn-sm">Case Study List </button> </a>
           </small>
         </div>
         <div class="card-body">
