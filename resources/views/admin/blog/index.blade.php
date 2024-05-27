@@ -16,29 +16,31 @@
             <table class="table table-hover" id="datatable-blog">
                 <thead>
                     <tr>
-                        <th>Publish Date</th>
-                        <th>Title</th>
+                        <!-- <th>Publish Date</th> -->
+                        <th>Thumb Title</th>
                         <th>Slug</th>
-                        <th>Short Description</th>
+                        <th>Main Title</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @foreach($blogs as $blog)
                     <tr>
-                        <td>{{$blog->publish_date}}</td>
+                        <!-- <td>{{$blog->publish_date}}</td> -->
                         <td>{{$blog->title}}</td>
                         <td>{{$blog->slug}}</td>
-                        <td>{{$blog->short_description}}</td>
+                        <td>{{$blog->thumb_title}}</td>
                         <td>
-                        <a href="{{route('blog.edit', $blog->id)}}" class="btn btn-primary btn-sm">
-                            <i class="bx bx-edit"></i>
-                        </a>
-                            <form action="{{route('blog.destroy',$blog->id)}}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i></button>
-                            </form>
+                            <div class="d-flex gap-2">
+                                <a href="{{route('blog.edit', $blog->id)}}" class="btn btn-primary btn-sm">
+                                    <i class="bx bx-edit"></i>
+                                </a>
+                                <form action="{{route('blog.destroy',$blog->id)}}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i></button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach

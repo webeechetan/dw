@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<section class="case_studies-inner-banner"  style="background-image: url({{$blog->banner}});">
+<section class="case_studies-inner-banner" style="background-image: url({{$blog->banner}});">
     <div class="container">
         @php
             $align = '';
@@ -18,93 +18,282 @@
         <div class="case_studies-inner-banner-wrap {{ $align }}">
             <div class="case_studies-inner-cat-title"><span>{{$blog->category->name}}</span> | <span>{{ $blog->subCategory->name }}</span></div>
             <h1 class="case_studies-inner-title">{{ $blog->title }}</h1>
-            <h2 class="case_studies-inner-short_dec">{{ $blog->short_description }}</h2>
-            <div class="case_studies-inner-author">By 
-                @php
-                    $authors_names = '';
-                    $totalAuthors = count($blog->users);
-                    $currentIndex = 0;
-                @endphp
-                @foreach($blog->users as $user)
-                    @php
-                        $currentIndex++; // Increment the current index for each author
-                    @endphp
-            
-                    @if($currentIndex == 1)
-                        @php
-                            // Directly append the first author's name without any prefix
-                            $authors_names .= $user->name;
-                        @endphp
-                    @elseif($currentIndex == $totalAuthors)
-                        @php
-                            // For the last author, prepend ' and ' if it's the last author's name
-                            $authors_names .= ' and ' . $user->name;
-                        @endphp
-                    @else
-                        @php
-                            // For any other author, append ', ' before their name
-                            $authors_names .= ', ' . $user->name;
-                        @endphp
-                    @endif
-                @endforeach
-                {{ $authors_names }}
-            </div>
-            
-            
+            <h1 class="case_studies-inner-title">{{ $blog->short_des }}</h1>
             
             <div class="case_studies-inner-meta-title">
-                <span> {{ \Carbon\Carbon::parse($blog->publish_date)->format('M d, Y') }} </span> 
-                @if($blog->minutes)
-                |
-                <span>{{$blog->minutes}}</span> 
-                @endif
-                |
-                <a href="javascript:void(0)" class="copy_link" data-url="{{ route('blog.view',$blog->slug) }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #fff;"><path d="M5.5 15a3.51 3.51 0 0 0 2.36-.93l6.26 3.58a3.06 3.06 0 0 0-.12.85 3.53 3.53 0 1 0 1.14-2.57l-6.26-3.58a2.74 2.74 0 0 0 .12-.76l6.15-3.52A3.49 3.49 0 1 0 14 5.5a3.35 3.35 0 0 0 .12.85L8.43 9.6A3.5 3.5 0 1 0 5.5 15zm12 2a1.5 1.5 0 1 1-1.5 1.5 1.5 1.5 0 0 1 1.5-1.5zm0-13A1.5 1.5 0 1 1 16 5.5 1.5 1.5 0 0 1 17.5 4zm-12 6A1.5 1.5 0 1 1 4 11.5 1.5 1.5 0 0 1 5.5 10z"></path></svg></a>
                 {{-- print --}}
-                |
                 <a href="javascript:void(0)" class="print_icon" onclick="window.print()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:white;transform: ;msFilter:;"><path d="M19 7h-1V2H6v5H5c-1.654 0-3 1.346-3 3v7c0 1.103.897 2 2 2h2v3h12v-3h2c1.103 0 2-.897 2-2v-7c0-1.654-1.346-3-3-3zM8 4h8v3H8V4zm8 16H8v-4h8v4zm4-3h-2v-3H6v3H4v-7c0-.551.449-1 1-1h14c.552 0 1 .449 1 1v7z"></path><path d="M14 10h4v2h-4z"></path></svg>
                 </a>
+                <a href="javascript:void(0)" class="copy_link" data-url="{{ route('blog.view',$blog->slug) }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #fff;"><path d="M5.5 15a3.51 3.51 0 0 0 2.36-.93l6.26 3.58a3.06 3.06 0 0 0-.12.85 3.53 3.53 0 1 0 1.14-2.57l-6.26-3.58a2.74 2.74 0 0 0 .12-.76l6.15-3.52A3.49 3.49 0 1 0 14 5.5a3.35 3.35 0 0 0 .12.85L8.43 9.6A3.5 3.5 0 1 0 5.5 15zm12 2a1.5 1.5 0 1 1-1.5 1.5 1.5 1.5 0 0 1 1.5-1.5zm0-13A1.5 1.5 0 1 1 16 5.5 1.5 1.5 0 0 1 17.5 4zm-12 6A1.5 1.5 0 1 1 4 11.5 1.5 1.5 0 0 1 5.5 10z"></path></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #fff;"><path d="M18 2H6c-1.103 0-2 .897-2 2v18l8-4.572L20 22V4c0-1.103-.897-2-2-2zm0 16.553-6-3.428-6 3.428V4h12v14.553z"></path></svg></a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="case_studies-inner-body">
-    <div class="container">
-        <div class="case_studies-inner-body-wrap">
-            <div>
-                <div class="case_studies-inner-body-content">
-                    {!! $blog->description !!}
+<section class="case_studies-inner-body casestudies">
+    <div class="inner-section">
+        <div class="container">
+            <div class="summery">
+                <ul>
+                    <li>
+                        <div class="title">Industry</div>
+                        <div class="desc">
+                            <ul>
+                                <li>Real Estate</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">Location</div>
+                        <div class="desc">
+                            <ul>
+                                <li>India</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">Solutions</div>
+                        <div class="desc">
+                            <ul>
+                                <li><a href="../web-engage/">Web Engage <img src="https://dwao.in/images/know-more-cta-arrow.png"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">Results</div>
+                        <div class="desc">
+                            <ul>
+                                <li>90% Increase in deliverability rate for Android push</li>
+                                <li>17% Increase in conversions from new journeys</li>
+                                <li>200+ Behavioural campaign executed </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="inner-section gray">
+        <div class="container">
+            <div class="grid">
+                <div class="head">Background</div>
+                <div class="dual-col">
+                    <div class="left">Lodha Group is an Indian multinational real estate company headquartered in Mumbai,
+                        India.</div>
+                    <div class="right">
+                        <p>At Lodha, our passion is to create landmarks that meet global standards, epitomise the values of
+                            our family, and are built on a legacy of trust spanning four decades. We are guided by our
+                            vision of ‘Building a Better Life’ and believe that homes transform lives. A home is a
+                            springboard for the dreams and aspirations, for living a healthier and fulfilled life.</p>
+                    </div>
                 </div>
             </div>
-            <div class="case_studies-sidebar">
-                <div class="case_studies-sidebar-wrap">
-                    @if($relatedBlogs->count() > 0)
-                    <h2>Related capabilities</h2>
-                    <ul class="case_studies-sidebar-options">
-                        @foreach($relatedBlogs as $relatedBlog)
-                            <li><a href="{{ route('blog.view',$relatedBlog->slug) }}"><span>{{ $relatedBlog->title}}</span><span class="case_studies-sidebar-options-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m19 12-7-6v5H6v2h6v5z"></path></svg></span></a></li>
-                        @endforeach
+        </div>
+    </div>
+    <div class="banner">
+        <img src="https://dwao.in/images/lodha.jpg">
+    </div>
+    <div class="inner-section gray">
+        <div class="container">
+            <div class="grid">
+                <div class="head">Objective</div>
+                <div class="dual-col">
+                    <div class="left">Lodha Group wanted to increased their business KPIs.</div>
+                    <div class="right">
+                        <p>IP Reputation Building</p>
+                        <p> Conversions of Leads to Opportunities</p>
+                        <p>Daily Ad hoc Campaigns Set Up</p>
+                        <p>Custom Dashboards &nbsp; Reports Set up</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-section gray">
+        <div class="container">
+            <div class="grid">
+                <div class="head">Solution</div>
+                <div class="dual-col">
+                    <div class="left">DWAO helped lodha Group to convert Conversions of Leads to Opportunities</div>
+                    <div class="right">
+                        <p>IP Reputation Building: We have increased the IP &nbsp; domain reputation of all 3 sub-domains of
+                            Lodha Group from Low to high in the first 2 months of engagement and maintained it all time high
+                            till now. Earlier they were getting 4-5% open rate for promotional communications from these sub
+                            domains but now we are getting more that 14% open rate for promotional campaigns.
+                        </p>
+                        <p>Lead to Opportunity Conversion: We have created a lead scoring model on their automation
+                            toolbased on the user interactions with communications and behaviour recorded on the website.
+                            Based on this we have identified the Most qualified leads and got them prioritized through
+                            different channels. This way we have converted 22% leads to Opportunities.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="dual-col">
+                    <div class="left">Setup Remarketing campaigns.</div>
+                    <div class="right">
+                        <p>We have done integration with theiraudience manager to share the segment from automation tool to
+                            audience manager. We have configured various remarketing campaign on the intelligent segments we
+                            had shared from the marketing automation tool, there by reducing the cost of these campaigns by
+                            excluding the users who are already engaging with other mode of communications.</p>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="dual-col">
+                        <div class="left">We did the setup of Customer Life Cycle Journey Campaigns</div>
+                        <div class="right">
+                            <p>We have set various Automated Cross Channel Campaigns for Lodha Group:
+                            </p>
+                            <ul>
+                                <li>Lead Scoring Model</li>
+                                <li>Lead Engagement Journey.</li>
+                                <li>Opportunity to Site Visit.</li>
+                                <li>Visit done Booking not done.</li>
+                                <li>3D Project Walkthrough Journey (After Covid Alternative to Site Visit).</li>
+                            </ul>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inner-section gray">
+            <div class="container">
+                <div class="grid">
+                    <div class="banner-text">
+                        <div class="thumb">
+                            <img src="https://dwao.in/images/performence-thumb.jpg">
+                        </div>
+                        <div class="text">
+                            DWAO worked with Lodha Group from last 2 years as a managed services project and create a lead
+                            scoring model on their automation toolbased on the user interactions with communications and
+                            behaviour recorded on the website
+                        </div>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="head">Result</div>
+                    <div class="dual-col">
+                        <div class="left">We didn’t just stop there.</div>
+                        <div class="right">
+                            <p>Strategic use case discovery</p>
+                            <p>Deliverability audit and improvements.</p>
+                            <p>Audit of existing set up and suggested missing events.</p>
+                            <p>Implementation of new journeys.</p>
+                            <p>Behavioral campaigns set up.</p>
+                            <p>Campaign performance monitoring.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features">
+                    <ul>
+                        <li>
+                            <div class="title">90%</div>
+                            <div class="desc">Increase in deliverability rate for Android push</div>
+                        </li>
+                        <li>
+                            <div class="title">17%</div>
+                            <div class="desc">Increase in conversions from new journeys</div>
+                        </li>
+                        <li>
+                            <div class="title">200+</div>
+                            <div class="desc">Journeys Implemented on the automation tool</div>
+                        </li>
                     </ul>
-                    <hr>
-                    @endif
-                    @php
-                        $trending_insights_title = explode(',',$blog->trending_insights_title);
-                        $trending_insights_url = explode(',',$blog->trending_insights_url); 
-                    @endphp
-                    @if(count($trending_insights_title) > 1)
-                    <h2>Trending insights</h2>
-                    <ol class="case_studies-sidebar-options-insights">
-                        
-                        @foreach($trending_insights_title as $key => $value)
-                            @if(!$key || !$value)
-                                @continue;
-                            @endif
-                            <li><a href="http://{{ $trending_insights_url[$key] }}">{{ $value }}</a></li>
-                        @endforeach
-                    </ol>
-                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="inner-section gray">
+            <div class="container">
+
+                <div class="learn-more">
+                    <h3>Related case studies</h3>
+                    <div id="slider-wrapper" class="case-studies-slider-inner slick-initialized slick-slider">
+                        <div class="slick-list draggable" style="padding: 0px;">
+                            <div class="slick-track">
+                                <div class="slide slick-slide slick-current slick-center" data-slick-index="0"
+                                    aria-hidden="true" tabindex="0" style="width: 374.4px;"> <img
+                                        src="https://dwao.in/images/featured-thumb-reliance.png" alt="Reliance">
+                                    <div class="desc">
+                                        <div class="bookmark"><a href="reliance-mutual-fund-case-study.html"
+                                                tabindex="-1"></a></div>
+                                        <h4>Case Study | Digital Analytics</h4>
+                                        <h3>How DWAO helped Reliance Mutual Fund increase their data accuracy beyond 95%
+                                        </h3>
+                                        <p>DWAO helped Reliance Mutual Fund in setting up accurate measurement platform to
+                                            understand customer behavior and execution of optimization roadmap across their
+                                            digital properties.</p>
+                                        <div class="cta"><a href="reliance-mutual-fund-case-study.html" tabindex="-1">
+                                                <svg width="32" height="32" viewBox="0 0 32 32"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <circle fill="#4A69BB" cx="16" cy="16" r="16"></circle>
+                                                        <g stroke="#FFF" stroke-width="2">
+                                                            <path d="m17.037 22.468 6.971-6.488-6.971-6.48M24.008 15.98H8">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </a></div>
+                                    </div>
+                                </div>
+                                <div class="slide slick-slide" data-slick-index="1" aria-hidden="true" tabindex="0"
+                                    style="width: 374.4px;"><img src="https://dwao.in/images/featured-thumb-airtel.jpg" alt="Airtel">
+                                    <div class="desc">
+                                        <div class="bookmark"><a href="airtel-case-study.html" tabindex="-1"></a></div>
+                                        <h4>Case study | Digital Analysis</h4>
+                                        <h3>How Airtel optimized their customer acquisition with DWAO</h3>
+                                        <p>DWAO helped Airtel with higher conversion from onlinecustomer acquisition flow,
+                                            migrate loyal users to mobile app and prevent affiliatefraud on prepaid recharge
+                                            campaigns.</p>
+                                        <div class="cta"><a href="airtel-case-study.html" tabindex="-1">
+                                                <svg width="32" height="32" viewBox="0 0 32 32"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <circle fill="#4A69BB" cx="16" cy="16" r="16"></circle>
+                                                        <g stroke="#FFF" stroke-width="2">
+                                                            <path d="m17.037 22.468 6.971-6.488-6.971-6.48M24.008 15.98H8">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </a></div>
+                                    </div>
+                                </div>
+                                <div class="slide slick-slide slick-center" data-slick-index="2" aria-hidden="true"
+                                    tabindex="0" style="width: 374.4px;"><img src="https://dwao.in/images/icicipru.png" alt="ICICIPRU">
+                                    <div class="desc">
+                                        <div class="bookmark"><a href="icici-prulife-case-study.html" tabindex="-1"></a>
+                                        </div>
+                                        <h4>Case study | Digital Analysis</h4>
+                                        <h3>How ICICI Pru Life Improved conversion by 3X with DWAO</h3>
+                                        <p>DWAO helped ICIC Pru Life achieve real-time personalizationand improve conversion
+                                            rates for existing users.</p>
+                                        <div class="cta"><a href="icici-prulife-case-study.html" tabindex="-1">
+                                                <svg width="32" height="32" viewBox="0 0 32 32"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <circle fill="#4A69BB" cx="16" cy="16" r="16"></circle>
+                                                        <g stroke="#FFF" stroke-width="2">
+                                                            <path d="m17.037 22.468 6.971-6.488-6.971-6.48M24.008 15.98H8">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="view-all"><a href="https://dwao.in/insights-and-case-studies/">View all case studies</a>
+                    </div>
                 </div>
             </div>
         </div>
