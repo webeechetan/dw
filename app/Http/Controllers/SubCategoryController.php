@@ -97,6 +97,8 @@ class SubCategoryController extends Controller
      */
     public function destroy(SubCategory $subCategory)
     {
-        //
+        $subCategory->delete();
+        $this->alert('success','Sub category deleted successfully!','success');
+        return redirect()->route('subCategory.index');
     }
 }

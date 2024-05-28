@@ -256,7 +256,7 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label" for="basic-icon-default-message">Left Image<span class="text-danger"><b>*</b></span> (480*734)</label>
+                                <label class="form-label" for="basic-icon-default-message">Left Image (480*734)</label>
                                 <div class="input-group">
                                     <span class="input-group-btn text-white">
                                         <a id="lfm-case_study_image" data-input="case_study_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>

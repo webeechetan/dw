@@ -170,7 +170,7 @@
 
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label class="form-label" for="basic-icon-default-message">Thumbnail<span class="text-danger"><b>*</b></span> (1920*850)</label>
+                                    <label class="form-label" for="basic-icon-default-message">Background Image<span class="text-danger"></span> (1920*850)</label>
                                     <div class="input-group">
                                         <span class="input-group-btn text-white">
                                             <a id="lfm-background_image" data-input="background_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
@@ -191,7 +191,7 @@
 
                         <div class="col-12 mb-3">
                             <label class="form-label" for="basic-icon-default-message">Title</label>
-                            <input type="text" name="objective_title" class="form-control" placeholder="objective_title">
+                            <input type="text" name="objective_title" class="form-control" placeholder="Objective title">
                         </div>
 
                         <div class="col-12">
@@ -216,7 +216,7 @@
                         <div class="solutions-list">
                             <div class="col-12 mb-3">
                                 <label class="form-label" for="basic-icon-default-message">Title</label>
-                                <input type="text" name="solution_title[]" class="form-control" placeholder="solution_title">
+                                <input type="text" name="solution_title[]" class="form-control" placeholder="Solution title">
                             </div>
                             <div class="col-12">
                                 <label class="form-label" for="basic-icon-default-message">Description</label>
@@ -243,7 +243,7 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label" for="basic-icon-default-message">Left Image<span class="text-danger"><b>*</b></span> (480*734)</label>
+                                <label class="form-label" for="basic-icon-default-message">Left Image (480*734)</label>
                                 <div class="input-group">
                                     <span class="input-group-btn text-white">
                                         <a id="lfm-case_study_image" data-input="case_study_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
@@ -270,7 +270,7 @@
 
                         <div class="col-12 mb-3">
                             <label class="form-label" for="basic-icon-default-message">Title</label>
-                            <input type="text" name="result_title" class="form-control" placeholder="result_title">
+                            <input type="text" name="result_title" class="form-control" placeholder="Result title">
                         </div>
 
                         <div class="col-12">
