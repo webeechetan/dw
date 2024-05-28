@@ -60,7 +60,7 @@
                                 <div class="post_card-cat-title"><span>{{$blog->category->name}}</span> | <span>{{$blog->subCategory->name}}</span></div>
                             </div>
                             <div class="post_card-body-content">
-                                <h4 class="post_card-body-content-title">{{ $blog->title }}</h4>
+                                <h4 class="post_card-body-content-title">{{ $blog->thumbnail_title }}</h4>
                             </div>
                         </div>
                     </a>
