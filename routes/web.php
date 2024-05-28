@@ -3,17 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\OurClientController;
-use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MetaController;
-use App\Http\Controllers\OurWorkController;
 use App\Http\Controllers\WebSiteController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\CaseStudyController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\UserController;
 
 /*--------------------------------- Admin Routes ---------------------------------*/
 
@@ -43,9 +39,8 @@ Route::group(['middleware' => 'auth','prefix'=>'/admin'], function () {
 
     Route::resources([
         '/category' => CategoryController::class,
-        '/blog' => BlogController::class,
         '/subCategory' => SubCategoryController::class,
-        '/user' => UserController::class,
+        '/caseStudy' => CaseStudyController::class,
     ]);
 
     /*--------------------------------- File Manager ---------------------------------*/
@@ -54,7 +49,7 @@ Route::group(['middleware' => 'auth','prefix'=>'/admin'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
 
-    Route::get('/get-subcategories/{id?}', [BlogController::class, 'getSubCategories'])->name('get.subcategories');
+    Route::get('/get-subcategories/{id?}', [CaseStudyController::class, 'getSubCategories'])->name('get.subcategories');
  
     /*----------------------------------- Meta ---------------------------------*/
 

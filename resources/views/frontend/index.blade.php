@@ -47,34 +47,13 @@
                 </div>
             </div>
         </div>
-        @if(!request()->has('subCatId') && $featuredBlogs->count() > 0)
-        <div class="case_studies-feature_list featured-blog-list">
-            @foreach ($featuredBlogs as $blog)
-                <div class="post_card post_card-featured ">
-                    <div class="post_card-img">
-                        <a href="{{ route('blog.view',$blog->slug) }}" style="background-image: url('{{ $blog->featured_thumbnail_image }}');"></a>
-                    </div>
-                    <div class="post_card-featured-badge">Featured</div>
-                    <div class="post_card-body">
-                        <div class="post_card-cat">
-                            <div class="post_card-cat-title"><span>{{$blog->category->name}}</span> | <span>{{$blog->subCategory->name}}</span></div>
-                        </div>
-                        <div class="post_card-body-content">
-                            <h4 class="post_card-body-content-title"><a href="{{ route('blog.view',$blog->slug) }}">{{ $blog->title }}</a></h4>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-        @endif
-
         <div class="case_studies-list">
             @foreach($recentBlogs as $blog)
 
                 <div class="post_card">
                     <a class="post_card_wrap" href="{{ route('blog.view',$blog->slug) }}">
                         <div class="post_card-img">
-                            <div style="background-image: url('{{ $blog->thumbnail }}');"></div>
+                            <div style="background-image: url('{{ $blog->thumbnail_image }}');"></div>
                         </div>
                         <div class="post_card-body">
                             <div class="post_card-cat">

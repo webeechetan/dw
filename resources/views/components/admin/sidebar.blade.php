@@ -51,16 +51,8 @@ It is just to check the uri segment value so that we can activate the currenct s
         </a>
       </li>
 
-      <!-- Users -->
-      <li class="menu-item {{Request::segment(2)== 'user' ? 'menu-item active' : ''}}">
-        <a href="{{route('user.index')}}" class="menu-link ">
-          <i class="menu-icon tf-icons bx bx-user"></i>
-          <div data-i18n="Layouts">Authors</div>
-        </a>
-      </li>
-
-       <!-- Blogs  -->
-       <li class="menu-item {{Request::segment(2)== 'blog' ? 'menu-item active open' : ''}}">
+       <!-- caseStudy  -->
+       <li class="menu-item {{Request::segment(2)== 'caseStudy' ? 'menu-item active open' : ''}}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-detail"></i>
           <div data-i18n="Layouts">Case Studies</div>
@@ -68,12 +60,12 @@ It is just to check the uri segment value so that we can activate the currenct s
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="{{route('blog.index')}}" class="menu-link">
+            <a href="{{route('caseStudy.index')}}" class="menu-link">
               <div data-i18n="Without menu">List</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="{{route('blog.create')}}" class="menu-link">
+            <a href="{{route('caseStudy.create')}}" class="menu-link">
               <div data-i18n="Without menu">Add</div>
             </a>
           </li>

@@ -5,14 +5,15 @@
     <div class="col-xl">
         <div class="card mb-4">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Add Case Study</h5>
+                <h5 class="mb-0">Edit Case Study</h5>
                 <small class="text-muted float-end">
-                    <a href="{{ route('blog.index') }}"> <button class="btn btn-primary btn-sm">Case Study List </button> </a>
+                    <a href="{{ route('caseStudy.index') }}"> <button class="btn btn-primary btn-sm">Case Study List </button> </a>
                 </small>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{route('blog.store')}}" class="post-form">
+                <form method="POST" action="{{route('caseStudy.update',$caseStudy->id)}}" class="post-form">
                     @csrf
+                    @method('PUT')
                     <!-- Basic Details -->
                     <div class="row">
                         <div class="col-12">
@@ -22,7 +23,7 @@
                         <div class="col-md-3">
                             <div class="mb-3">
                                 <label class="form-label" for="basic-icon-default-fullname">Publish Date</label>
-                                <input type="date" class="form-control" id="publish_date" name="publish_date">
+                                <input type="date" class="form-control" id="published_at" name="published_at">
                             </div>
                         </div>
 
@@ -55,7 +56,7 @@
                         <div class="col-md-3">
                             <div class="mb-3">
                                 <label class="form-label" for="basic-icon-default-message">Thumbnail Title</label>
-                                <input type="text" maxlength="250" name="short_description" class="form-control"
+                                <input type="text" maxlength="250" name="thumbnail_title" class="form-control"
                                     placeholder="Thumbnail Title">
                             </div>
                         </div>
@@ -66,12 +67,12 @@
                                         class="text-danger"><b>*</b></span> (600*500)</label>
                                 <div class="input-group">
                                     <span class="input-group-btn text-white">
-                                        <a id="lfm" data-input="thumbnail" data-preview="holder"
+                                        <a id="lfm" data-input="thumbnail_image" data-preview="holder"
                                             class="btn btn-primary">
                                             <i class="menu-icon tf-icons bx bx-file"></i>Choose
                                         </a>
                                     </span>
-                                    <input id="thumbnail" class="form-control" type="text" name="thumbnail" required>
+                                    <input id="thumbnail_image" class="form-control" type="text" name="thumbnail_image" required>
                                 </div>
                             </div>
                         </div>
@@ -80,9 +81,9 @@
                             <div class="mb-3">
                                 <label class="form-label" for="blog_title">Title<span
                                         class="text-danger"><b>*</b></span> </label>
-                                <input type="text" required id="input_title" name="blog_title" class="form-control"
+                                <input type="text" required id="input_title" name="title" class="form-control"
                                     placeholder="Title">
-                                @error('blog_title')
+                                @error('title')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -128,25 +129,25 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label" for="basic-icon-default-message">Industry</label>
-                            <input type="text" name="minutes" class="form-control" placeholder="5 Minutes">
+                            <input type="text" name="overview_industry" class="form-control" placeholder="Overview Industry">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label" for="basic-icon-default-message">Location</label>
-                            <input type="text" name="minutes" class="form-control" placeholder="5 Minutes">
+                            <input type="text" name="overview_location" class="form-control" placeholder="Overview Location">
                         </div>
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="form-label" for="basic-icon-default-message">Solutions</label>
-                            <textarea id="sol_editor" required name="description" class="form-control"
+                            <textarea id="sol_editor" required name="overview_solutions" class="form-control"
                                 placeholder="Description"></textarea>
-                            @error('description')
+                            @error('overview_solutions')
                             <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="basic-icon-default-message">Results</label>
-                            <textarea id="res_editor" required name="description" class="form-control"
+                            <textarea id="res_editor" required name="overview_results" class="form-control"
                                 placeholder="Description"></textarea>
-                            @error('description')
+                            @error('overview_results')
                             <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
@@ -161,12 +162,12 @@
 
                             <div class="col-12 mb-3">
                                 <label class="form-label" for="basic-icon-default-message">Title</label>
-                                <input type="text" name="minutes" class="form-control" placeholder="5 Minutes">
+                                <input type="text" name="background_title" class="form-control" placeholder="Background title">
                             </div>
 
                             <div class="col-12 mb-3">
                                 <label class="form-label" for="basic-icon-default-message">Description</label>
-                                <textarea id="back_des_editor" required name="description" class="form-control"
+                                <textarea id="back_des_editor" required name="background_description" class="form-control"
                                     placeholder="Description"></textarea>
                                 @error('description')
                                 <div class="text-danger mt-2">{{ $message }}</div>
@@ -178,9 +179,9 @@
                                     <label class="form-label" for="basic-icon-default-message">Thumbnail<span class="text-danger"><b>*</b></span> (1920*850)</label>
                                     <div class="input-group">
                                         <span class="input-group-btn text-white">
-                                            <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
+                                            <a id="lfm-background_image" data-input="background_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
                                         </span>
-                                        <input id="thumbnail" class="form-control" type="text" name="thumbnail" required>
+                                        <input id="background_image" class="form-control" type="text" name="background_image" required>
                                     </div>
                                 </div>
                             </div>
@@ -196,14 +197,14 @@
 
                         <div class="col-12 mb-3">
                             <label class="form-label" for="basic-icon-default-message">Title</label>
-                            <input type="text" name="minutes" class="form-control" placeholder="5 Minutes">
+                            <input type="text" name="objective_title" class="form-control" placeholder="objective_title">
                         </div>
 
                         <div class="col-12">
                             <label class="form-label" for="basic-icon-default-message">Description</label>
-                            <textarea id="obj_des_editor" required name="description" class="form-control"
+                            <textarea id="obj_des_editor" required name="objective_description" class="form-control"
                                 placeholder="Description"></textarea>
-                            @error('description')
+                            @error('objective_description')
                             <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
@@ -218,19 +219,30 @@
                             <h5>Solution</h5>
                         </div>
 
-                        <div class="col-12 mb-3">
-                            <label class="form-label" for="basic-icon-default-message">Title</label>
-                            <input type="text" name="minutes" class="form-control" placeholder="5 Minutes">
+                        <div class="solutions-list">
+                          @foreach ($caseStudy->solution_title as $solution)
+                          <div>
+                            <div class="col-12 mb-3">
+                                <label class="form-label" for="basic-icon-default-message">Title</label>
+                                <input type="text" name="solution_title[]" value="{{ $solution }}" class="form-control" placeholder="solution_title">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label" for="basic-icon-default-message">Description</label>
+                                <textarea id="sol_des_editor" required name="solution_description[]" class="form-control sol-editor"
+                                    placeholder="Description">{{ $caseStudy->solution_description[$loop->index] }}</textarea>
+                                @error('solution_description')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <a class="btn btn-danger btn-sm remove-solutions">Remove</a>
+                          </div>
+                          @endforeach
+                        </div>
+                        <div class="mt-4">
+                            <a class="btn btn-success btn-sm add-more-solutions">Add More Solutions</a>
                         </div>
 
-                        <div class="col-12">
-                            <label class="form-label" for="basic-icon-default-message">Description</label>
-                            <textarea id="sol_des_editor" required name="description" class="form-control"
-                                placeholder="Description"></textarea>
-                            @error('description')
-                            <div class="text-danger mt-2">{{ $message }}</div>
-                            @enderror
-                        </div>
+                        
 
                         <div class="col-12 my-4"><hr></div>
 
@@ -247,16 +259,16 @@
                                 <label class="form-label" for="basic-icon-default-message">Left Image<span class="text-danger"><b>*</b></span> (480*734)</label>
                                 <div class="input-group">
                                     <span class="input-group-btn text-white">
-                                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
+                                        <a id="lfm-case_study_image" data-input="case_study_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
                                     </span>
-                                    <input id="thumbnail" class="form-control" type="text" name="thumbnail" required>
+                                    <input id="case_study_image" class="form-control" type="text" name="case_study_image" required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="basic-icon-default-message">Title</label>
-                            <input type="text" name="minutes" class="form-control">
+                            <input type="text" name="case_study_title" class="form-control">
                         </div>
 
                         <div class="col-12 my-4"><hr></div>
@@ -271,14 +283,14 @@
 
                         <div class="col-12 mb-3">
                             <label class="form-label" for="basic-icon-default-message">Title</label>
-                            <input type="text" name="minutes" class="form-control" placeholder="5 Minutes">
+                            <input type="text" name="result_title" class="form-control" placeholder="result_title">
                         </div>
 
                         <div class="col-12">
                             <label class="form-label" for="basic-icon-default-message">Description</label>
-                            <textarea id="result_des_editor" required name="description" class="form-control"
+                            <textarea id="result_des_editor" required name="result_description" class="form-control"
                                 placeholder="Description"></textarea>
-                            @error('description')
+                            @error('result_description')
                             <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
@@ -295,12 +307,12 @@
 
                         <div class="col-md-4 mb-3">
                             <label class="form-label" for="basic-icon-default-message">Name</label>
-                            <input type="text" name="minutes" class="form-control" placeholder="">
+                            <input type="text" name="user_pofile_name" class="form-control" placeholder="">
                         </div>
 
                         <div class="col-md-4 mb-3">
                             <label class="form-label" for="basic-icon-default-message">Designation</label>
-                            <input type="text" name="minutes" class="form-control" placeholder="">
+                            <input type="text" name="user_pofile_designation" class="form-control" placeholder="">
                         </div>
 
                         <div class="col-md-4 mb-3">
@@ -308,16 +320,16 @@
                                 <label class="form-label" for="basic-icon-default-message">Profile Image<span class="text-danger"><b>*</b></span> (480*734)</label>
                                 <div class="input-group">
                                     <span class="input-group-btn text-white">
-                                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
+                                        <a id="lfm-user_pofile_image" data-input="user_pofile_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
                                     </span>
-                                    <input id="thumbnail" class="form-control" type="text" name="thumbnail" required>
+                                    <input id="user_pofile_image" class="form-control" type="text" name="user_pofile_image" required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <label class="form-label" for="basic-icon-default-message">Description</label>
-                            <textarea id="profile_des_editor" required name="description" class="form-control"
+                            <textarea id="profile_des_editor" required name="user_pofile_description" class="form-control"
                                 placeholder="Description"></textarea>
                             @error('description')
                             <div class="text-danger mt-2">{{ $message }}</div>
@@ -333,22 +345,13 @@
                         <div class="col-12">
                             <h5>Counter Numbers</h5>
                         </div>
-
+                        @foreach ($caseStudy->counter_numbers as $counter)
                         <div class="col-md-4 mb-3 mb-md-0">
                             <label class="form-label" for="basic-icon-default-message">Counter Coulmn</label>
-                            <input type="text" name="count_numb_1" class="form-control" placeholder="Counter Number">
-                            <input type="text" name="count_text_1" class="form-control mt-3" placeholder="Counter Text">
+                            <input type="text" name="counter_numbers[]" value="{{ $counter }}" class="form-control" placeholder="Counter Number">
+                            <input type="text" name="counter_text[]" value="{{ $caseStudy->counter_text[$loop->index] }}" class="form-control mt-3" placeholder="Counter Text">
                         </div>
-                        <div class="col-md-4 mb-3 mb-md-0">
-                            <label class="form-label" for="basic-icon-default-message">Counter Coulmn</label>
-                            <input type="text" name="count_numb_2" class="form-control" placeholder="Counter Number">
-                            <input type="text" name="count_text_2" class="form-control mt-3" placeholder="Counter Text">
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label" for="basic-icon-default-message">Counter Coulmn</label>
-                            <input type="text" name="count_numb_3" class="form-control" placeholder="Counter Number">
-                            <input type="text" name="count_text_3" class="form-control mt-3" placeholder="Counter Text">
-                        </div>
+                        @endforeach
 
                         <div class="col-12 my-4"><hr></div>
 
@@ -405,50 +408,35 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
 <script>
 
-    var route_prefix = "https://dwao.in/blog/admin/filemanager";
+    var route_prefix = "{{ env('FILE_MANAGER_URL') }}";
+
+    var toolbar = [
+        { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },
+        { name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'] },
+        { name: 'insert', items: ['Image', 'Table', 'HorizontalRule', 'SpecialChar', 'PageBreak'] },
+        { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },
+        { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'] },
+        { name: 'links', items: ['Link', 'Unlink', 'Anchor'] },
+        { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
+    ];
+
+    var options = {
+        filebrowserImageBrowseUrl: route_prefix,
+        toolbar: toolbar,
+    };
 
     $(document).ready(function () {
 
-        $("#thumbnail").change(function () {
-            let thumbnail = $(this).val();
-            console.log(thumbnail);
-            // check for white space in path
-            if (/\s/g.test(thumbnail)) {
-                setTimeout(() => {
-                    alert('Thumbnail path should not contain white space');
-                    $(this).val('');
-                }, 500);
-            }
+      var caseStudy = @json($caseStudy);
 
-        });
+      // set form values get each field by name and set value
 
-        $("#banner").change(function () {
-            let banner = $(this).val();
-            console.log(banner);
-            // check for white space in path
-            if (/\s/g.test(banner)) {
-                setTimeout(() => {
-                    alert('Banner path should not contain white space');
-                    $(this).val('');
-                }, 500);
-            }
-
-        });
-
-        $("#featured_thumbnail").change(function () {
-            let featured_thumbnail = $(this).val();
-            console.log(featured_thumbnail);
-            // check for white space in path
-            if (/\s/g.test(featured_thumbnail)) {
-                setTimeout(() => {
-                    alert('Featured Thumbnail path should not contain white space');
-                    $(this).val('');
-                }, 500);
-            }
-
-        });
-
-
+      for (const key in caseStudy) {
+        if (Object.hasOwnProperty.call(caseStudy, key)) {
+          const element = caseStudy[key];
+          $(`[name="${key}"]`).val(element);
+        }
+      }
 
         $(".categories").change(function () {
             let catId = $(this).val();
@@ -465,69 +453,68 @@
             });
         });
 
-        $('.users').select2({
-            placeholder: "Select Author",
-        });
-
         $(".post-form").validate({
             errorElement: "div",
         });
 
 
+        $('#thumbnail_image').filemanager('file', { prefix: route_prefix });
+        $('#banner-fm').filemanager('file', { prefix: route_prefix });
         $('#lfm').filemanager('file', { prefix: route_prefix });
+        $('#lfm-background_image').filemanager('file', { prefix: route_prefix });
+        $('#lfm-case_study_image').filemanager('file', { prefix: route_prefix });
+        $('#lfm-user_pofile_image').filemanager('file', { prefix: route_prefix });
         $('#og_image').filemanager('file', { prefix: route_prefix });
         $('#ft').filemanager('file', { prefix: route_prefix });
-        $('#banner-fm').filemanager('file', { prefix: route_prefix });
+        let counter = 1;
 
-        $(".is_featured").change(function () {
-            if (this.checked) {
-                $('#featured_thumbnail').parent().parent().show();
-                $('#featured_thumbnail').attr('required', true);
-            } else {
-                $('#featured_thumbnail').parent().parent().hide();
-                $('#featured_thumbnail').attr('required', false);
-            }
+        $('.add-more-solutions').click(function () {
+            counter++;
+            let html = `
+                <div class="solutions-list">
+                    <div class="col-12 mb-3">
+                        <label class="form-label" for="basic-icon-default-message">Title</label>
+                        <input type="text" name="solution_title[]" class="form-control" placeholder="solution_title">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label
+                        " for="basic-icon-default-message">Description</label>
+                        <textarea id="sol_des_editor_${counter}" required name="solution_description[]" class="form-control" placeholder="Description"></textarea>
+                        @error('solution_description')
+                        <div class="text-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <a class="btn btn-danger btn-sm remove-solutions">Remove</a>
+                </div>
+            `;
+            $('.add-more-solutions').before(html);
+
+            // make appended description editor
+
+            CKEDITOR.replace(`sol_des_editor_${counter}`, options);
+
         });
 
-        $('.add_more_insights').click(function () {
-            let insights = `
-    <div class="row">
-      <div><hr></div>
-      <div class="col-md-6">
-        <div class="mb-3">
-          <label class="form-label" for="basic-icon-default-message">Title</label>
-          <input type="text" name="trending_insights_title[]" class="form-control" placeholder="Trending Insights Title">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="mb-3">
-          <label class="form-label" for="basic-icon-default-message">URL</label>
-          <input type="text" name="trending_insights_url[]" class="form-control" placeholder="Trending Insights URL">
-        </div>
-      </div>
-      <div class="d-flex align-items-end"><a href="javascript:;" class="btn btn-danger remove_insights mb-3">Remove</a></div>
-    </div>
-    `;
-            $('.trending_insights').append(insights);
+        $(document).on('click', '.remove-solutions', function () {
+            $(this).parent().remove();
         });
-
-        $(document).on('click', '.remove_insights', function () {
-            $(this).parent().parent().remove();
-        });
-
 
     });
 
-    var options = {
-        filebrowserImageBrowseUrl: route_prefix
-    };
+    
 
     CKEDITOR.replace('sol_editor', options);
     CKEDITOR.replace('res_editor', options);
     CKEDITOR.replace('back_des_editor', options);
     CKEDITOR.replace('obj_des_editor', options);
-    CKEDITOR.replace('sol_des_editor', options);
+    // CKEDITOR.replace('sol_des_editor', options);
     CKEDITOR.replace('result_des_editor', options);
     CKEDITOR.replace('profile_des_editor', options);
+
+    // .sol-editor is the class of the textarea where CKEditor will be initialized
+
+    $('.sol-editor').each(function (index, element) {
+      CKEDITOR.replace(element, options);
+    });
 </script>
 @endsection

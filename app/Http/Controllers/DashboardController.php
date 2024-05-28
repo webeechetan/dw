@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\SubCategory;
-use App\Models\Blog;
+use App\Models\CaseStudy;
 
 class DashboardController extends Controller
 {
     public  function index(){
-        $blogsCount = Blog::count();
+        $blogsCount = CaseStudy::count();
         $categoriesCount = Category::count();
         $subCategoriesCount = SubCategory::count();
 

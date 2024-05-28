@@ -4,7 +4,7 @@
 <div class="row text-center">
    <div class="col-md-4">
       <div class="card p-3">
-         <a href="{{ route('blog.index') }}"><h5 class="card-title">Total Case Studies</h5></a>
+         <a href="{{ route('caseStudy.index') }}"><h5 class="card-title">Total Case Studies</h5></a>
          <h3 class="card-text">{{ $blogsCount }}</h3>
        </div>
     </div>

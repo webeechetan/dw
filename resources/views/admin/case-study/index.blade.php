@@ -9,7 +9,7 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="mb-0">Case Study List</h5>
-        <a href="{{route('blog.create')}}" class="btn btn-primary btn-sm">Add Case Study</a>
+        <a href="{{route('caseStudy.create')}}" class="btn btn-primary btn-sm">Add Case Study</a>
     </div>
     <div class="table-responsive">
         <div class="container">
@@ -17,25 +17,23 @@
                 <thead>
                     <tr>
                         <!-- <th>Publish Date</th> -->
-                        <th>Thumb Title</th>
+                        <th>Title</th>
                         <th>Slug</th>
-                        <th>Main Title</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    @foreach($blogs as $blog)
+                    @foreach($caseStudies as $blog)
                     <tr>
                         <!-- <td>{{$blog->publish_date}}</td> -->
                         <td>{{$blog->title}}</td>
                         <td>{{$blog->slug}}</td>
-                        <td>{{$blog->thumb_title}}</td>
                         <td>
                             <div class="d-flex gap-2">
-                                <a href="{{route('blog.edit', $blog->id)}}" class="btn btn-primary btn-sm">
+                                <a href="{{route('caseStudy.edit', $blog->id)}}" class="btn btn-primary btn-sm">
                                     <i class="bx bx-edit"></i>
                                 </a>
-                                <form action="{{route('blog.destroy',$blog->id)}}" method="POST" class="d-inline">
+                                <form action="{{route('caseStudy.create',$blog->id)}}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i></button>
