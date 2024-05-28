@@ -11,17 +11,7 @@
           <form method="POST" action="{{ route('subCategory.update',$subCategory->id) }}"  >
             @csrf
             @method('PUT')
-                <div class="mb-3">
-                    <label class="form-label" for="basic-icon-default-fullname">Sub Category Name</label>
-                    <div class="input-group input-group-merge">
-                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                    <input type="" class="form-control" id="basic-icon-default-fullname" name="category_name" value="{{$subCategory->name}}">
-                    </div>
-                    @error('category_name')    
-                        <div class="text-danger mt-2">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
+              <div class="mb-3">
                   <label class="form-label" for="basic-icon-default-fullname"> Category Name</label>
                   <div class="input-group input-group-merge">
                   <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
@@ -36,6 +26,16 @@
                       <div class="text-danger mt-2">{{ $message }}</div>
                   @enderror
               </div>
+                <div class="mb-3">
+                    <label class="form-label" for="basic-icon-default-fullname">Sub Category Name</label>
+                    <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+                    <input type="" class="form-control" id="basic-icon-default-fullname" name="category_name" value="{{$subCategory->name}}">
+                    </div>
+                    @error('category_name')    
+                        <div class="text-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
             <button type="submit" class="btn btn-primary">Save</button>
           </form>
         </div>
