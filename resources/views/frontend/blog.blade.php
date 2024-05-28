@@ -106,18 +106,18 @@
     </div>
     <div class="inner-section gray">
         <div class="container">
-            @foreach($blog->solution_title as $solution)
             <div class="grid">
                 <div class="head">Solution</div>
-                <div class="dual-col">
+                @foreach($blog->solution_title as $solution)
+                <div class="dual-col sec-repeat">
                     <div class="left">{{ $solution }}</div>
                     <div class="right">
                         <p>{!! $blog->solution_description[$loop->index] !!}</p>
                     </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
-            
+
         </div>
         <div class="inner-section gray">
             <div class="container">
@@ -127,7 +127,7 @@
                             <img src="{{ $blog->case_study_image }}">
                         </div>
                         <div class="text">
-                           {{$blog->case_study_title}}
+                           {!! $blog->case_study_title !!}
                         </div>
                     </div>
                 </div>
@@ -146,8 +146,7 @@
                         <div class="text">
                             {!! $blog->user_pofile_description !!}
                             <div class="author">
-                                <strong>{{$blog->user_pofile_name}} </strong> 
-                                {{$blog->user_pofile_designation}}
+                                <strong>{{$blog->user_pofile_name}},</strong> {{$blog->user_pofile_designation}}
                             </div>
                         </div>
                         <div class="thumb">
@@ -160,6 +159,9 @@
                 <div class="features">
                     <ul>
                         @foreach($blog->counter_numbers as $number)
+                        @if(!$number)
+                            @continue
+                        @endif
                         <li>
                             <div class="title">{{ $number }}</div>
                             <div class="desc">
@@ -181,7 +183,7 @@
                             <div class="slick-track">
                                 @foreach($relatedBlogs as $blog)
                                 <div class="slide slick-slide slick-current slick-center" data-slick-index="0" aria-hidden="true" tabindex="0" style="width: 374.4px;"> 
-                                    <img src="{{$blog->banner}}" alt="Reliance">
+                                    <img src="{{$blog->thumbnail_image}}" alt="Reliance">
                                     <div class="desc">
                                         <div class="bookmark"><a href="reliance-mutual-fund-case-study.html" tabindex="-1"></a></div>
                                         <h4>{{ $blog->category->name }} | {{ $blog->subCategory->name }}</h4>

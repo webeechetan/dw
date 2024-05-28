@@ -41,8 +41,7 @@
 
                         <div class="col-md-3">
                             <div class="mb-3">
-                                <label class="form-label" for="basic-icon-default-fullname">Sub Category<span
-                                        class="text-danger"><b>*</b></span> </label>
+                                <label class="form-label" for="basic-icon-default-fullname">Sub Category<span class="text-danger"><b>*</b></span> </label>
                                 <select name="sub_category_id" id="" class="form-control sub_categories" required>
                                     <option value="">Select Sub Category</option>
                                     @foreach ($subCategories as $category)
@@ -54,16 +53,14 @@
 
                         <div class="col-md-3">
                             <div class="mb-3">
-                                <label class="form-label" for="basic-icon-default-message">Thumbnail Title</label>
-                                <input type="text" maxlength="250" name="thumbnail_title" class="form-control"
-                                    placeholder="Thumbnail Title">
+                                <label class="form-label" for="basic-icon-default-message">Thumbnail Title<span class="text-danger"><b>*</b></span></label>
+                                <input type="text" maxlength="250" name="thumbnail_title" class="form-control" placeholder="Thumbnail Title" required>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="mb-3">
-                                <label class="form-label" for="basic-icon-default-message">Thumbnail<span
-                                        class="text-danger"><b>*</b></span> (600*500)</label>
+                                <label class="form-label" for="basic-icon-default-message">Thumbnail<span class="text-danger"><b>*</b></span> (600*500)</label>
                                 <div class="input-group">
                                     <span class="input-group-btn text-white">
                                         <a id="lfm" data-input="thumbnail_image" data-preview="holder"
@@ -78,10 +75,8 @@
 
                         <div class="col-md-3">
                             <div class="mb-3">
-                                <label class="form-label" for="blog_title">Title<span
-                                        class="text-danger"><b>*</b></span> </label>
-                                <input type="text" required id="input_title" name="title" class="form-control"
-                                    placeholder="Title">
+                                <label class="form-label" for="blog_title">Title<span class="text-danger"><b>*</b></span> </label>
+                                <input type="text" required id="input_title" name="title" class="form-control" placeholder="Title">
                                 @error('title')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror
@@ -233,10 +228,8 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <a class="btn btn-success btn-sm add-more-solutions">Add More Solutions</a>
+                            <a href="javascript:;" class="btn btn-success btn-sm add-more-solutions">Add More Solutions</a>
                         </div>
-
-                        
 
                         <div class="col-12 my-4"><hr></div>
 
@@ -340,17 +333,22 @@
                             <h5>Counter Numbers</h5>
                         </div>
 
-                        <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="col-md-3 mb-3 mb-md-0">
                             <label class="form-label" for="basic-icon-default-message">Counter Coulmn</label>
                             <input type="text" name="counter_numbers[]" class="form-control" placeholder="Counter Number">
                             <input type="text" name="counter_text[]" class="form-control mt-3" placeholder="Counter Text">
                         </div>
-                        <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="col-md-3 mb-3 mb-md-0">
                             <label class="form-label" for="basic-icon-default-message">Counter Coulmn</label>
                             <input type="text" name="counter_numbers[]" class="form-control" placeholder="Counter Number">
                             <input type="text" name="counter_text[]" class="form-control mt-3" placeholder="Counter Text">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
+                            <label class="form-label" for="basic-icon-default-message">Counter Coulmn</label>
+                            <input type="text" name="counter_numbers[]" class="form-control" placeholder="Counter Number">
+                            <input type="text" name="counter_text[]" class="form-control mt-3" placeholder="Counter Text">
+                        </div>
+                        <div class="col-md-3">
                             <label class="form-label" for="basic-icon-default-message">Counter Coulmn</label>
                             <input type="text" name="counter_numbers[]" class="form-control" placeholder="Counter Number">
                             <input type="text" name="counter_text[]" class="form-control mt-3" placeholder="Counter Text">
@@ -506,7 +504,7 @@
                         <div class="text-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
-                    <a class="btn btn-danger btn-sm remove-solutions">Remove</a>
+                    <a href="javscript:;" class="btn btn-danger btn-sm remove-solutions my-3">Remove</a>
                 </div>
             `;
             $('.add-more-solutions').before(html);

@@ -29,6 +29,9 @@
   font-weight: 400;
   font-style: normal;
 }
+.sec-repeat:not(:last-child) {
+  margin-bottom: 70px;
+}
 /* ----- Header ----- */
 body.has-no-banner header {
   border-bottom: 1px solid #ddd;
