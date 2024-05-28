@@ -86,7 +86,17 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, SubCategory $subCategory)
     {
-        //
+        $request->validate([
+            'category_name' => 'required|unique:sub_categories,name,'.$subCategory->id,
+            'category_id' => 'required',
+        ]);
+
+        $subCategory->category_id = $request
+        ->category_id;
+        $subCategory->name = $request->category_name;
+        $subCategory->save();
+        $this->alert('success','Sub category updated successfully!','success');
+        return redirect()->route('subCategory.index');
     }
 
     /**
