@@ -100,7 +100,7 @@
                 <li><a href="#objective">Objective</a></li>
                 <li><a href="#solution">Solution</a></li>
                 <li><a href="#result">Result</a></li>
-                <li><a href="#result">Related capabilities</a></li>
+                <li><a href="#related-capabilities">Related capabilities</a></li>
             </ul>
         </div>
     </div>

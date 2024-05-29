@@ -32,8 +32,12 @@
 .sec-repeat:not(:last-child) {
   margin-bottom: 70px;
 }
-.hover_arrow {
-
+html {
+  scroll-behavior: smooth;
+}
+.scroll_to {
+  position: absolute;
+  transform: translateY(-80px);
 }
 /* ----- Header ----- */
 body.has-no-banner header {

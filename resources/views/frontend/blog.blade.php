@@ -33,7 +33,8 @@
     </div>
 </section>
 
-<section id="summary" class="case_studies-inner-body casestudies">
+<section class="case_studies-inner-body casestudies">
+    <div id="summary" class="scroll_to"></div>
     <div class="inner-section">
         <div class="container">
             <div class="summery">
@@ -82,6 +83,7 @@
     <div class="banner">
         <img src="{{$blog->background_image}}">
     </div>
+    <div id="objective" class="scroll_to"></div>
     <div class="inner-section gray">
         <div class="container">
             <div class="grid">
@@ -95,6 +97,7 @@
             </div>
         </div>
     </div>
+    <div id="solution" class="scroll_to"></div>
     <div class="inner-section gray">
         <div class="container">
             <div class="grid">
@@ -122,6 +125,7 @@
                         </div>
                     </div>
                 </div>
+                <div id="result" class="scroll_to"></div>
                 <div class="grid">
                     <div class="head">Result</div>
                     <div class="dual-col">
@@ -164,6 +168,7 @@
                 </div>
             </div>
         </div>
+        <div id="related-capabilities" class="scroll_to"></div>
         <div class="inner-section gray">
             <div class="container">
 
