@@ -6,9 +6,12 @@
         <div class="card mb-4">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">Add Case Study</h5>
-                <small class="text-muted float-end">
-                    <a href="{{ route('caseStudy.index') }}"> <button class="btn btn-primary btn-sm">Case Study List </button> </a>
-                </small>
+                <div>
+                    <small class="text-muted">
+                        <a href="{{ route('caseStudy.index') }}"> <button class="btn btn-secondary btn-sm">Case Study List </button> </a>
+                    </small>
+                    <button type="submit" class="btn btn-primary submit_form btn-sm ms-2">Save</button>
+                </div>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{route('caseStudy.store')}}" class="post-form">
@@ -175,7 +178,7 @@
                                         <span class="input-group-btn text-white">
                                             <a id="lfm-background_image" data-input="background_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
                                         </span>
-                                        <input id="background_image" class="form-control" type="text" name="background_image" required>
+                                        <input id="background_image" class="form-control" type="text" name="background_image">
                                     </div>
                                 </div>
                             </div>
@@ -309,7 +312,7 @@
                                     <span class="input-group-btn text-white">
                                         <a id="lfm-user_pofile_image" data-input="user_pofile_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
                                     </span>
-                                    <input id="user_pofile_image" class="form-control" type="text" name="user_pofile_image" required>
+                                    <input id="user_pofile_image" class="form-control" type="text" name="user_pofile_image">
                                 </div>
                             </div>
                         </div>
@@ -412,6 +415,10 @@
     var route_prefix = "{{ env('FILE_MANAGER_URL') }}";
 
     $(document).ready(function () {
+
+        $(".submit_form").click(function () {
+            $(".post-form").submit();
+        });
 
         // $("#thumbnail").change(function () {
         //     let thumbnail = $(this).val();

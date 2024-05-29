@@ -18,59 +18,59 @@ class MetaSeeder extends Seeder
         $meta = [
             [
                 "url" => "/",
-                "title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_description" => "WeBeeSocial is a creative digital marketing agency in Delhi, India. We offer SEO, Performance and Social Media Marketing, Website design &amp; development services.",
+                "title" => "",
+                "meta_title" => "",
+                "meta_description" => "",
                 "og_title" => "agensy",
-                "og_image" => "https://www.webeesocial.com/preview.png"
+                "og_image" => ""
             ],
             [
                 "url" => "about-us",
-                "title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_description" => "WeBeeSocial is a creative digital marketing agency in Delhi, India. We offer SEO, Performance and Social Media Marketing, Website design &amp; development services.",
+                "title" => "",
+                "meta_title" => "",
+                "meta_description" => "",
                 "og_title" => "agensy",
-                "og_image" => "https://www.webeesocial.com/preview.png"
+                "og_image" => ""
             ],
             [
                 "url" => "get-in-touch",
-                "title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_description" => "WeBeeSocial is a creative digital marketing agency in Delhi, India. We offer SEO, Performance and Social Media Marketing, Website design &amp; development services.",
+                "title" => "",
+                "meta_title" => "",
+                "meta_description" => "",
                 "og_title" => "agensy",
-                "og_image" => "https://www.webeesocial.com/preview.png"
+                "og_image" => ""
             ],
             [
                 "url" => "work-with-us",
-                "title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_description" => "WeBeeSocial is a creative digital marketing agency in Delhi, India. We offer SEO, Performance and Social Media Marketing, Website design &amp; development services.",
+                "title" => "",
+                "meta_title" => "",
+                "meta_description" => "",
                 "og_title" => "agensy",
-                "og_image" => "https://www.webeesocial.com/preview.png"
+                "og_image" => ""
             ],
             [
                 "url" => "our-services",
-                "title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_description" => "WeBeeSocial is a creative digital marketing agency in Delhi, India. We offer SEO, Performance and Social Media Marketing, Website design &amp; development services.",
+                "title" => "",
+                "meta_title" => "",
+                "meta_description" => "",
                 "og_title" => "agensy",
-                "og_image" => "https://www.webeesocial.com/preview.png"
+                "og_image" => ""
             ],
             [
                 "url" => "our-work",
-                "title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_description" => "WeBeeSocial is a creative digital marketing agency in Delhi, India. We offer SEO, Performance and Social Media Marketing, Website design &amp; development services.",
+                "title" => "",
+                "meta_title" => "",
+                "meta_description" => "",
                 "og_title" => "agensy",
-                "og_image" => "https://www.webeesocial.com/preview.png"
+                "og_image" => ""
             ],
             [
                 "url" => "blog",
-                "title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_title" => "WeBeeSocial | Creative Agency New Delhi | Digital Marketing Company",
-                "meta_description" => "WeBeeSocial is a creative digital marketing agency in Delhi, India. We offer SEO, Performance and Social Media Marketing, Website design &amp; development services.",
+                "title" => "",
+                "meta_title" => "",
+                "meta_description" => "",
                 "og_title" => "agensy",
-                "og_image" => "https://www.webeesocial.com/preview.png"
+                "og_image" => ""
             ]
         ];
         DB::table('metas')->insert($meta);

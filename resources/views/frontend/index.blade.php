@@ -1,6 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('meta_title','DWAO - Blogs')
+@section('body_class','case_study_list_page has-no-banner')
 @section('meta_description',$meta->meta_description)
 
 @push('styles')

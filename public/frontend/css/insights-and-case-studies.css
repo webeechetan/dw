@@ -32,6 +32,9 @@
 .sec-repeat:not(:last-child) {
   margin-bottom: 70px;
 }
+.hover_arrow {
+
+}
 /* ----- Header ----- */
 body.has-no-banner header {
   border-bottom: 1px solid #ddd;
@@ -43,6 +46,18 @@ body.has-no-banner .top-menu .logo a {
 }
 body.has-no-banner #cssmenu > ul > li > a {
   color: var(--text-color);
+}
+body.case_study_list_page .home-nav {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  body.has-no-banner header .button:before, body.has-no-banner header .button:after {
+    border-top: 2px solid #333;
+  }
+  body.has-no-banner header .button:after {
+    border-bottom: 2px solid #333;
+  }
 }
 
 /* ----- Filters ----- */
@@ -230,7 +245,6 @@ body.has-no-banner #cssmenu > ul > li > a {
   min-height: 80vh;
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-top: 80px;
   display: flex;
   align-items: center;
   background-position: center center;
@@ -263,7 +277,7 @@ body.has-no-banner #cssmenu > ul > li > a {
   font-size: 20px;
   color: #ddd;
   text-transform: uppercase;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 @media (max-width: 767px) {
   .case_studies-inner-cat-title {
@@ -275,6 +289,7 @@ body.has-no-banner #cssmenu > ul > li > a {
   line-height: 1.2em;
   color: #fff;
   font-weight: 400;
+  margin-top: 0;
   margin-bottom: 20px;
 }
 @media (max-width: 767px) {
@@ -402,6 +417,33 @@ body.has-no-banner #cssmenu > ul > li > a {
   .case_studies.no-banner {
     padding-top: 90px;
   }
+}
+
+.casestudies .summery ul li .desc {
+  font-family: linik_sansregular;
+  font-size: 1.1rem;
+  color: #929292;
+}
+.casestudies .summery ul li .desc ul li a {
+  position: relative;
+  padding-right: 35px;
+}
+.casestudies .summery ul li .desc ul li a:after {
+  content: "";
+  background: url(https://dwao.in/images/know-more-cta-arrow.png) no-repeat center/100%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  transform: translateX(-5px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.casestudies .summery ul li .desc ul li a:hover:after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }
 
 .reset-filter {

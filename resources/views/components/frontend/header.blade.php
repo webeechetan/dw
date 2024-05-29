@@ -1,4 +1,4 @@
-<header class="active">
+<header>
     <div class="top-menu">
         <nav id='cssmenu'>
             <div class="logo"><a href="https://dwao.in/">DWAO</a></div>
@@ -91,6 +91,18 @@
             </ul>
             <!--<div class="search-icon"><a href="#"></a></div> -->
         </nav>
+    </div>
+
+    <div class="home-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#summary">Summary</a></li>
+                <li><a href="#objective">Objective</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#result">Result</a></li>
+                <li><a href="#result">Related capabilities</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="progress"></div>

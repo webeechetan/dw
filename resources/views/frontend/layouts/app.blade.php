@@ -21,7 +21,7 @@
     @stack('styles')
 </head>
 
-<body class="has-no-banner">
+<body class="@yield('body_class')">
     <!-- Header -->
     <x-frontend.header />
 

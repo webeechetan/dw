@@ -20,7 +20,6 @@
         <div class="case_studies-inner-banner-wrap {{ $align }}">
             <div class="case_studies-inner-cat-title"><span>{{$blog->category->name}}</span> | <span>{{ $blog->subCategory->name }}</span></div>
             <h1 class="case_studies-inner-title">{{ $blog->title }}</h1>
-            <h1 class="case_studies-inner-title">{{ $blog->short_des }}</h1>
             
             <div class="case_studies-inner-meta-title">
                 {{-- print --}}
@@ -34,7 +33,7 @@
     </div>
 </section>
 
-<section class="case_studies-inner-body casestudies">
+<section id="summary" class="case_studies-inner-body casestudies">
     <div class="inner-section">
         <div class="container">
             <div class="summery">
@@ -42,33 +41,25 @@
                     <li>
                         <div class="title">Industry</div>
                         <div class="desc">
-                            <ul>
-                                <li>{{ $blog->overview_industry }}</li>
-                            </ul>
+                            {{ $blog->overview_industry }}
                         </div>
                     </li>
                     <li>
                         <div class="title">Location</div>
                         <div class="desc">
-                            <ul>
-                                <li>{{ $blog->overview_location }}</li>
-                            </ul>
+                            {{ $blog->overview_location }}
                         </div>
                     </li>
                     <li>
                         <div class="title">Solutions</div>
-                        <div class="desc">
-                            <ul>
-                                <li>{!! $blog->overview_solutions !!}</li>
-                            </ul>
+                        <div class="desc hover_arrow">
+                            {!! $blog->overview_solutions !!}
                         </div>
                     </li>
                     <li>
                         <div class="title">Results</div>
                         <div class="desc">
-                            <ul>
-                                <li>{!! $blog->overview_results !!}</li>
-                            </ul>
+                            {!! $blog->overview_results !!}
                         </div>
                     </li>
                 </ul>
