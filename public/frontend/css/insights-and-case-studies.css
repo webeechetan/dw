@@ -247,7 +247,7 @@ body.case_study_list_page .home-nav {
 }
 .case_studies-inner-banner {
   min-height: 80vh;
-  padding-top: 50px;
+  padding-top: 90px;
   padding-bottom: 50px;
   display: flex;
   align-items: center;
@@ -269,12 +269,12 @@ body.case_study_list_page .home-nav {
   z-index: 9;
 }
 .case_studies-inner-banner-wrap {
-  max-width: 60%;
+  max-width: 700px;
 }
 @media (max-width: 767px) {
   .case_studies-inner-banner {
     min-height: inherit;
-    padding: 70px 0;
+    padding-bottom: 50px;
   }
 }
 .case_studies-inner-cat-title {
