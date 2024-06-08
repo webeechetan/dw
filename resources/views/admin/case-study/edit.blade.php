@@ -317,12 +317,12 @@
 
                         <div class="col-md-4 mb-3">
                             <div class="mb-3">
-                                <label class="form-label" for="basic-icon-default-message">Profile Image<span class="text-danger"><b>*</b></span> (480*734)</label>
+                                <label class="form-label" for="basic-icon-default-message">Profile Image (480*734)</label>
                                 <div class="input-group">
                                     <span class="input-group-btn text-white">
                                         <a id="lfm-user_pofile_image" data-input="user_pofile_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
                                     </span>
-                                    <input id="user_pofile_image" class="form-control" type="text" name="user_pofile_image" required>
+                                    <input id="user_pofile_image" class="form-control" type="text" name="user_pofile_image">
                                 </div>
                             </div>
                         </div>
