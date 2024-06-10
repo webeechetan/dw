@@ -174,37 +174,31 @@
 
                 <div class="learn-more">
                     <h3>Related case studies</h3>
-                    <div id="slider-wrapper" class="case-studies-slider-inner slick-initialized slick-slider">
-                        <div class="slick-list draggable" style="padding: 0px;">
-                            <div class="slick-track">
-                                @foreach($relatedBlogs as $blog)
-                                <div class="slide slick-slide slick-current slick-center" data-slick-index="0" aria-hidden="true" tabindex="0" style="width: 374.4px;"> 
-                                    <img src="{{$blog->thumbnail_image}}" alt="Reliance">
-                                    <div class="desc">
-                                        <div class="bookmark"><a href="reliance-mutual-fund-case-study.html" tabindex="-1"></a></div>
-                                        <h4>{{ $blog->category->name }} | {{ $blog->subCategory->name }}</h4>
-                                        <h3>{{ $blog->thumbnail_title }}</h3>
-                                        <p>{{ $blog->thumbnail_title }}</p>
-                                        <div class="cta"><a href="{{ route('blog.view',$blog->slug) }}" tabindex="-1">
-                                                <svg width="32" height="32" viewBox="0 0 32 32"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <g fill="none" fill-rule="evenodd">
-                                                        <circle fill="#4A69BB" cx="16" cy="16" r="16"></circle>
-                                                        <g stroke="#FFF" stroke-width="2">
-                                                            <path d="m17.037 22.468 6.971-6.488-6.971-6.48M24.008 15.98H8">
-                                                            </path>
-                                                        </g>
-                                                    </g>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
+                    <div id="slider-wrapper" class="case-studies-slider-inner">
+                        @foreach($relatedBlogs as $blog)
+                        <div class="slide"> 
+                            <img src="{{$blog->thumbnail_image}}" alt="Reliance">
+                            <div class="desc">
+                                <div class="bookmark"><a href="reliance-mutual-fund-case-study.html" tabindex="-1"></a></div>
+                                <h4>{{ $blog->category->name }} | {{ $blog->subCategory->name }}</h4>
+                                <h3>{{ $blog->thumbnail_title }}</h3>
+                                <p>{{ $blog->thumbnail_title }}</p>
+                                <div class="cta"><a href="{{ route('blog.view',$blog->slug) }}" tabindex="-1">
+                                        <svg width="32" height="32" viewBox="0 0 32 32"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g fill="none" fill-rule="evenodd">
+                                                <circle fill="#4A69BB" cx="16" cy="16" r="16"></circle>
+                                                <g stroke="#FFF" stroke-width="2">
+                                                    <path d="m17.037 22.468 6.971-6.488-6.971-6.48M24.008 15.98H8">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </a>
                                 </div>
-                                @endforeach
                             </div>
                         </div>
-
-
+                        @endforeach
                     </div>
                     <div class="view-all"><a href="https://dwao.in/insights-and-case-studies/">View all case studies</a>
                     </div>
