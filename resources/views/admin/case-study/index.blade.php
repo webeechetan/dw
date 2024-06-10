@@ -33,7 +33,7 @@
                                 <a href="{{route('caseStudy.edit', $blog->id)}}" class="btn btn-primary btn-sm">
                                     <i class="bx bx-edit"></i>
                                 </a>
-                                <form action="{{route('caseStudy.create',$blog->id)}}" method="POST" class="d-inline">
+                                <form action="{{route('caseStudy.destroy',$blog->id)}}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i></button>

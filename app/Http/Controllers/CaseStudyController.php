@@ -92,7 +92,9 @@ class CaseStudyController extends Controller
      */
     public function destroy(CaseStudy $caseStudy)
     {
-        //
+        $caseStudy->delete();
+        $this->alert('success','Case Study Deleted successfully','success');
+        return redirect()->route('caseStudy.index');
     }
 
     public function getSubCategories($id){

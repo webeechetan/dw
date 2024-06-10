@@ -55,7 +55,7 @@
 
                         <div class="col-md-3">
                             <div class="mb-3">
-                                <label class="form-label" for="basic-icon-default-message">Thumbnail Title</label>
+                                <label class="form-label" for="basic-icon-default-message">Thumbnail Title<span class="text-danger"><b>*</b></span></label>
                                 <input type="text" maxlength="250" name="thumbnail_title" class="form-control"
                                     placeholder="Thumbnail Title">
                             </div>
@@ -137,7 +137,7 @@
                         </div>
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="form-label" for="basic-icon-default-message">Solutions</label>
-                            <textarea id="sol_editor" required name="overview_solutions" class="form-control"
+                            <textarea id="sol_editor"  name="overview_solutions" class="form-control"
                                 placeholder="Description"></textarea>
                             @error('overview_solutions')
                             <div class="text-danger mt-2">{{ $message }}</div>
@@ -145,7 +145,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="basic-icon-default-message">Results</label>
-                            <textarea id="res_editor" required name="overview_results" class="form-control"
+                            <textarea id="res_editor"  name="overview_results" class="form-control"
                                 placeholder="Description"></textarea>
                             @error('overview_results')
                             <div class="text-danger mt-2">{{ $message }}</div>
@@ -167,7 +167,7 @@
 
                             <div class="col-12 mb-3">
                                 <label class="form-label" for="basic-icon-default-message">Description</label>
-                                <textarea id="back_des_editor" required name="background_description" class="form-control"
+                                <textarea id="back_des_editor" name="background_description" class="form-control"
                                     placeholder="Description"></textarea>
                                 @error('description')
                                 <div class="text-danger mt-2">{{ $message }}</div>
@@ -176,12 +176,12 @@
 
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label class="form-label" for="basic-icon-default-message">Thumbnail<span class="text-danger"><b>*</b></span> (1920*850)</label>
+                                    <label class="form-label" for="basic-icon-default-message">Thumbnail (1920*850)</label>
                                     <div class="input-group">
                                         <span class="input-group-btn text-white">
                                             <a id="lfm-background_image" data-input="background_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
                                         </span>
-                                        <input id="background_image" class="form-control" type="text" name="background_image" required>
+                                        <input id="background_image" class="form-control" type="text" name="background_image" >
                                     </div>
                                 </div>
                             </div>
@@ -202,7 +202,7 @@
 
                         <div class="col-12">
                             <label class="form-label" for="basic-icon-default-message">Description</label>
-                            <textarea id="obj_des_editor" required name="objective_description" class="form-control"
+                            <textarea id="obj_des_editor" name="objective_description" class="form-control"
                                 placeholder="Description"></textarea>
                             @error('objective_description')
                             <div class="text-danger mt-2">{{ $message }}</div>
@@ -228,18 +228,18 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label" for="basic-icon-default-message">Description</label>
-                                <textarea id="sol_des_editor" required name="solution_description[]" class="form-control sol-editor"
+                                <textarea id="sol_des_editor" name="solution_description[]" class="form-control sol-editor"
                                     placeholder="Description">{{ $caseStudy->solution_description[$loop->index] }}</textarea>
                                 @error('solution_description')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <a class="btn btn-danger btn-sm remove-solutions">Remove</a>
+                            <a class="btn btn-danger btn-sm my-3 remove-solutions text-white">Remove</a>
                           </div>
                           @endforeach
                         </div>
                         <div class="mt-4">
-                            <a class="btn btn-success btn-sm add-more-solutions">Add More Solutions</a>
+                            <a class="btn btn-success btn-sm add-more-solutions text-white">Add More Solutions</a>
                         </div>
 
                         
@@ -261,7 +261,7 @@
                                     <span class="input-group-btn text-white">
                                         <a id="lfm-case_study_image" data-input="case_study_image" data-preview="holder" class="btn btn-primary"><i class="menu-icon tf-icons bx bx-file"></i>Choose</a>
                                     </span>
-                                    <input id="case_study_image" class="form-control" type="text" name="case_study_image" required>
+                                    <input id="case_study_image" class="form-control" type="text" name="case_study_image" >
                                 </div>
                             </div>
                         </div>
@@ -288,7 +288,7 @@
 
                         <div class="col-12">
                             <label class="form-label" for="basic-icon-default-message">Description</label>
-                            <textarea id="result_des_editor" required name="result_description" class="form-control"
+                            <textarea id="result_des_editor" name="result_description" class="form-control"
                                 placeholder="Description"></textarea>
                             @error('result_description')
                             <div class="text-danger mt-2">{{ $message }}</div>
@@ -329,7 +329,7 @@
 
                         <div class="col-12">
                             <label class="form-label" for="basic-icon-default-message">Description</label>
-                            <textarea id="profile_des_editor" required name="user_pofile_description" class="form-control"
+                            <textarea id="profile_des_editor"  name="user_pofile_description" class="form-control"
                                 placeholder="Description"></textarea>
                             @error('description')
                             <div class="text-danger mt-2">{{ $message }}</div>
@@ -479,12 +479,12 @@
                     <div class="col-12">
                         <label class="form-label
                         " for="basic-icon-default-message">Description</label>
-                        <textarea id="sol_des_editor_${counter}" required name="solution_description[]" class="form-control" placeholder="Description"></textarea>
+                        <textarea id="sol_des_editor_${counter}" name="solution_description[]" class="form-control" placeholder="Description"></textarea>
                         @error('solution_description')
                         <div class="text-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
-                    <a class="btn btn-danger btn-sm remove-solutions">Remove</a>
+                    <a class="btn btn-danger btn-sm remove-solutions text-white">Remove</a>
                 </div>
             `;
             $('.add-more-solutions').before(html);
