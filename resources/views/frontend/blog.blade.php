@@ -135,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-                @if(!$blog->user_pofile_description || !$blog->user_pofile_name || !$blog->user_pofile_designation || !$blog->user_pofile_image)
+                @if($blog->user_pofile_description || $blog->user_pofile_name || $blog->user_pofile_designation || $blog->user_pofile_image)
                 <div class="grid">
                     <div class="banner-text alt">
                         <div class="text">
